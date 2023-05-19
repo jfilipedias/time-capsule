@@ -40,10 +40,22 @@ export default function Home() {
 
           <Link
             href=""
-            className="inline-block rounded-full bg-green-500 px-5 py-3 font-alt text-sm uppercase leading-none text-black hover:bg-green-600"
+            className="inline-block rounded-full bg-green-500 px-5 py-3 font-alt text-sm uppercase leading-none text-black transition-colors hover:bg-green-600"
           >
             CADASTRAR LEMBRANÇA
           </Link>
+        </div>
+
+        <div className="text-sm leading-relaxed text-gray-200">
+          Feito com 💜 no NLW da{' '}
+          <a
+            href="https://rocketseat.com.br"
+            target="_blank"
+            rel="noreferrer"
+            className="underline  transition-colors hover:text-gray-100"
+          >
+            Rocketseat
+          </a>
         </div>
       </div>
 
@@ -51,7 +63,10 @@ export default function Home() {
         <div className="flex flex-1 items-center justify-center">
           <p className="w-[360px] text-center leading-relaxed">
             Você ainda não registrou nenhuma lembrança.{' '}
-            <Link href="" className="underline hover:text-gray-50">
+            <Link
+              href=""
+              className="underline  transition-colors hover:text-gray-50"
+            >
               Comece a criar agora!
             </Link>
           </p>
