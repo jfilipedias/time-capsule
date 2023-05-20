@@ -16,3 +16,12 @@ NEXT_PUBLIC_GITHUB_CLIENT_ID="your-github-oauth-app-client-id"
 GITHUB_CLIENT_ID="your-github-oauth-app-client-id"
 GITHUB_CLIENT_SECRET="your-github-oauth-app-client-secret"
 ```
+
+Além disso, por utilizar JWT, é necessário configurar um `secret`, gerado de forma aleatória, como exemplificado no [arquivo .env.example](./server/.env.example) do projeto `server`:
+
+```
+JWT_SECRET="your-jwt-radom-secret"
+```
+
+Para gerar o `secret`, é possível utilizar a seguinte função do `openssl`: 
+```openssl rand -base64 32```
