@@ -4,6 +4,11 @@
     "strict": true,
     "types": [
       "nativewind/types"
-    ]
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   }
 }
