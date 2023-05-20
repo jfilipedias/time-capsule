@@ -8,7 +8,7 @@ import { memoriesRoutes } from './routes/memories'
 const app = fastify()
 
 app.register(cors, {
-  origin: ['http://localhost:3000'],
+  origin: true,
 })
 
 app.register(jwt, {
