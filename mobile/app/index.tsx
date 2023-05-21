@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { ImageBackground, Text, TouchableOpacity, View } from 'react-native'
 import { makeRedirectUri, useAuthRequest } from 'expo-auth-session'
+import { useRouter } from 'expo-router'
 import * as SecureStore from 'expo-secure-store'
 import { StatusBar } from 'expo-status-bar'
 import { styled } from 'nativewind'
@@ -41,20 +42,27 @@ export default function App() {
     BaiJamjuree_700Bold,
   })
 
+  const router = useRouter()
+
+  async function handleGitHubOAuthCode(code: string) {
+    const response = await fetch('http://192.168.1.109:3333/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ code }),
+    })
+
+    const { token } = await response.json()
+
+    await SecureStore.setItemAsync('token', token)
+    await router.push('/memories')
+  }
+
   useEffect(() => {
     if (response?.type === 'success') {
       const { code } = response.params
-
-      fetch('http://192.168.1.109:3333/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ code }),
-      })
-        .then((response) => response.json())
-        .then((data) => SecureStore.setItemAsync('token', data.token))
-        .catch((err) => console.error(err))
+      handleGitHubOAuthCode(code)
     }
   }, [response])
 
