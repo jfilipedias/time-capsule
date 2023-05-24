@@ -12,8 +12,11 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import * as ImagePicker from 'expo-image-picker'
 import { Link, useRouter } from 'expo-router'
 import * as SecureStore from 'expo-secure-store'
+import { styled } from 'nativewind'
 import Icon from '@expo/vector-icons/Feather'
 import NLWLogo from '../src/assets/nlw-spacetime-logo.svg'
+
+const StyledNLWLogo = styled(NLWLogo)
 
 export default function NewMemory() {
   const [isPublic, setIsPublic] = useState(false)
@@ -85,7 +88,7 @@ export default function NewMemory() {
       contentContainerStyle={{ paddingBottom: bottom, paddingTop: top }}
     >
       <View className="mt-5 flex-row items-center justify-between">
-        <NLWLogo />
+        <StyledNLWLogo className="max-w-[190px]" />
 
         <Link href="/memories" asChild>
           <TouchableOpacity className="h-10 w-10 items-center justify-center rounded-full bg-purple-500">
