@@ -25,7 +25,7 @@ export function NewMemoryForm() {
       const uploadResponse = await fetch('http://localhost:3333/upload', {
         method: 'POST',
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
         },
         body: uploadFormData,
       })
